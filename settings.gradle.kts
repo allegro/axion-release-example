@@ -7,20 +7,21 @@
  * in the user manual at https://docs.gradle.org/7.1/userguide/multi_project_builds.html
  */
 
-//pluginManagement {
-//    repositories {
-//        mavenLocal()
-//        mavenCentral()
-//    }
-//
-//    resolutionStrategy {
-//        eachPlugin {
-//            if (requested.id.namespace == "pl.allegro.tech.build") {
-//                useModule("pl.allegro.tech.build:axion-release-plugin:${requested.version}")
-//            }
-//        }
-//    }
-//}
+pluginManagement {
+    repositories {
+        mavenLocal()
+        maven(url = "https://jitpack.io")
+        mavenCentral()
+    }
+
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.toString() == "pl.allegro.tech.build.axion-release") {
+                useModule("com.github.allegro:axion-release-plugin:${requested.version}")
+            }
+        }
+    }
+}
 
 rootProject.name = "axion-release-example"
 include("app")
