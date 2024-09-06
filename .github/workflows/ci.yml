@@ -17,6 +17,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - run: ./gradlew build
+      - run: ./gradlew currentVersion
       - id: release
         run: ./gradlew release
       - run: ./gradlew publishToMavenLocal
